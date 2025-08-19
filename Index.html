@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Senior Front End Engineer (Contract) — Pie Insurance</title>
+  <meta name="description" content="A modern, accessible job description for Senior Front End Engineer (Contract) at Pie Insurance — React/TypeScript, SSR (Next.js), micro-frontends, testing, AWS." />
+  <meta name="theme-color" content="#0b1024" id="meta-theme-color" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ccircle cx='64' cy='64' r='60' fill='%238b5cf6'/%3E%3Ctext x='64' y='78' font-family='Arial' font-size='64' text-anchor='middle' fill='white'%3EP%3C/text%3E%3C/svg%3E">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Senior Front End Engineer (Contract) — Pie Insurance" />
+  <meta property="og:description" content="Build world-class frontends with React/TypeScript, SSR (Next.js), micro-frontends, testing at scale, and AWS. Remote, contract." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/0b1024/e7f4ff&text=Pie+Insurance+—+Senior+Front+End+Engineer" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0b1024;
+      --bg-2:#0a0f21;
+      --panel:#0e1533;
+      --txt:#e7f4ff;
+      --muted:#b8c6dd;
+      --primary:#8b5cf6;
+      --accent:#06b6d4;
+      --success:#10b981;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --ring: 0 0 0 1px #8b5cf680, 0 0 0 6px #06b6d440;
+      --shadow: 0 10px 40px rgba(0,0,0,.35);
+      --card: linear-gradient(180deg, #0e1433, #0b1128);
+      --outline:#24306b;
+      --grad: radial-gradient(1200px 700px at 90% -10%, #1b2a5a7a, transparent 60%),
+              radial-gradient(800px 600px at -10% 120%, #4a006e45, transparent 60%);
+    }
+    /* Light theme */
+    [data-theme="light"]{
+      --bg:#f7f9ff;
+      --bg-2:#eef3ff;
+      --panel:#ffffff;
+      --txt:#0e1222;
+      --muted:#445070;
+      --primary:#5b35d6;
+      --accent:#0ea5b6;
+      --outline:#d8def3;
+      --card: linear-gradient(180deg, #ffffff, #f6f8ff);
+      --grad: radial-gradient(1200px 700px at 90% -10%, #cfe3ff, transparent 60%),
+              radial-gradient(800px 600px at -10% 120%, #f5dfff, transparent 60%);
+    }
+
+    *{ box-sizing: border-box }
+    html, body{ height:100% }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--txt);
+      background:
+        var(--grad),
+        linear-gradient(180deg, var(--bg), var(--bg-2) 60%, #050915 100%);
+      overflow-x:hidden;
+    }
+
+    /* Accessibility helpers */
+    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden }
+    .skip:focus{ left:16px; top:16px; width:auto; height:auto; background:#000; color:#fff; padding:10px 14px; border-radius:10px }
+
+    /* Layout */
+    .wrap{ max-width:1120px; margin:0 auto; padding: 20px; }
+    header.hero{ margin-top: 10px; padding: 26px 18px 20px; border-radius: 22px; border:1px solid var(--outline); background: var(--card); box-shadow: var(--shadow); position:relative; overflow:hidden }
+    .hero::after{
+      content:""; position:absolute; inset:-1px; pointer-events:none;
+      background: conic-gradient(from 0deg, transparent, rgba(139,92,246,.08), transparent);
+      filter: blur(18px);
+    }
+    .brand{ display:flex; align-items:center; gap:8px; font:700 11px/1 Inter, sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#bfe3ff; opacity:.9 }
+    [data-theme="light"] .brand{ color:#3d4a7a }
+    .brand .dot{ width:8px; height:8px; border-radius:999px; background:linear-gradient(90deg, var(--primary), var(--accent)); box-shadow:0 0 12px #06b6d488 }
+    h1.title{ margin:10px 0 6px; font-family: "Space Grotesk", Inter, Arial; font-size: clamp(30px, 5vw, 54px); letter-spacing:.01em }
+    p.subtitle{ margin: 10px 0 16px; color:#d6e7ff; line-height:1.65; font-size: clamp(15px, 2.4vw, 18px) }
+    [data-theme="light"] p.subtitle{ color:#445070 }
+
+    /* Quick facts */
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 2px }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px; border:1px solid #28357a;
+      background: linear-gradient(180deg, #0b1440, #091236);
+      color:#cfe3ff; font:600 12px/1 Inter, sans-serif;
+    }
+    [data-theme="light"] .chip{ background:#f4f6ff; border-color:#d7e3ff; color:#32406a }
+    .chip .blink{ width:6px; height:12px; background:var(--accent); box-shadow:0 0 10px #22d3ee80; animation: blink 1.6s steps(2) infinite }
+    @keyframes blink{ 50%{ opacity:.15 } }
+
+    /* HUD actions */
+    .hud{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px }
+    .hud .actions{ display:flex; gap:10px; flex-wrap:wrap }
+    button.btn, a.btn{
+      --bg1:#1b0b49; --bg2:#0d1a4b; --border:#3a2d85;
+      display:inline-flex; align-items:center; gap:10px; padding:13px 15px; border-radius:12px;
+      border:1px solid var(--border);
+      background:
+        radial-gradient(120px 60px at 20% 0%, #8b5cf640, transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      color:#e7f4ff; text-decoration:none; font-weight:700; letter-spacing:.02em; cursor:pointer;
+      box-shadow: 0 0 16px rgba(139,92,246,.25), 0 0 26px rgba(6,182,212,.15);
+      transition: transform .15s ease, box-shadow .2s ease;
+    }
+    [data-theme="light"] .btn{ background:#ffffff; color:#1a2350; border-color:#e3e8ff; box-shadow: 0 8px 24px rgba(26,35,80,.12) }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 0 0 1px #8b5cf680, 0 0 24px #06b6d455 }
+    .btn.secondary{ --bg1:#06283b; --bg2:#061a2c; --border:#135971 }
+    [data-theme="light"] .btn.secondary{ background:#f7fbff }
+    .btn.ghost{ background:transparent; border-color:#2b3560 }
+    [data-theme="light"] .btn.ghost{ border-color:#d9e3ff }
+
+    .btn .swash{ width:16px; height:16px; border-radius:3px; background:linear-gradient(135deg,var(--primary),var(--accent)); box-shadow:0 0 12px #06b6d488}
+
+    /* Navigation */
+    nav.toc{ position:sticky; top:12px; z-index:10; display:flex; gap:10px; flex-wrap:wrap; margin: 16px 0 }
+    nav.toc a{
+      padding:10px 12px; border-radius:12px; border:1px solid #223074; color:#cfe3ff; text-decoration:none; font-size:13px; background:#0c1336;
+    }
+    [data-theme="light"] nav.toc a{ background:#f6f8ff; border-color:#d7e3ff; color:#334170 }
+    nav.toc a:hover, nav.toc a.active{ outline: none; box-shadow: var(--ring); }
+
+    /* Sections */
+    section{ margin: 18px 0; padding: 18px; border:1px solid var(--outline); border-radius: 18px; background: var(--card) }
+    [data-theme="light"] section{ background:var(--card); }
+    h2{ font-family:"Space Grotesk", Inter, Arial; margin:0 0 12px 0; font-size: clamp(18px, 3.5vw, 26px) }
+    p{ margin:8px 0 12px; color:#cfe0ff; line-height:1.7; font-size: 15.5px }
+    [data-theme="light"] p{ color:#2a335a }
+    ul{ margin:6px 0 0 0; padding-left: 18px; color:#cfe0ff; }
+    [data-theme="light"] ul{ color:#2a335a }
+    li{ margin:8px 0; line-height:1.65 }
+
+    /* Grid cards */
+    .grid{ display:grid; gap:12px }
+    @media (min-width: 860px){ .grid.cols-2{ grid-template-columns: 1fr 1fr } .grid.cols-3{ grid-template-columns: 1fr 1fr 1fr } }
+    .card{
+      border:1px solid #23306f; border-radius:16px; padding:14px;
+      background: linear-gradient(180deg,#0d1542, #0a1233);
+      box-shadow: var(--shadow);
+    }
+    [data-theme="light"] .card{ background:#ffffff; border-color:#e2e8ff; box-shadow: 0 6px 22px rgba(26,35,80,.08) }
+    .card h3{ margin:0 0 8px 0; font-size:16px; letter-spacing:.08em; text-transform:uppercase; color:#d7e9ff }
+    [data-theme="light"] .card h3{ color:#2c3562 }
+    .tagrow{ display:flex; flex-wrap:wrap; gap:8px; margin-top:6px }
+    .tag{
+      font-family:"Share Tech Mono", monospace; font-size:12px; letter-spacing:.06em;
+      border:1px solid #2b3560; color:#cce9ff; padding:4px 10px; border-radius:999px; background:#0a1330;
+    }
+    [data-theme="light"] .tag{ border-color:#d9e3ff; color:#32406a; background:#f6f8ff }
+
+    /* Note */
+    .note{
+      margin-top:8px; padding:10px 12px; border-radius:12px; border:1px dashed #3350a2;
+      color:#b8d5ff; background:linear-gradient(180deg,#0a143acc,#07102ecc);
+      font-size:13px;
+    }
+    [data-theme="light"] .note{ color:#334170; background:#f5f7ff; border-color:#d7e3ff }
+
+    /* Sticky apply bar */
+    .applybar{
+      position:sticky; bottom:14px; display:flex; justify-content:center; z-index:999;
+      pointer-events:none;
+    }
+    .applybar .inner{
+      pointer-events:auto; display:flex; gap:10px; background: #0a1233ee; border:1px solid #223074; padding:10px; border-radius:14px; box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    [data-theme="light"] .applybar .inner{ background:#ffffffea; border-color:#d7e3ff; box-shadow: 0 10px 30px rgba(26,35,80,.18) }
+
+    /* Scroll progress */
+    .progress{
+      position:fixed; top:0; left:0; height:4px; width:0%;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      box-shadow: 0 4px 20px rgba(6,182,212,.6);
+      z-index:9999;
+    }
+
+    /* Floating actions */
+    .fab{
+      position:fixed; right:16px; bottom:16px; z-index:1000; display:flex; gap:10px; flex-direction:column;
+    }
+    .fab .mini{
+      width:44px; height:44px; border-radius:12px; border:1px solid #2b3560; background:#0c1336; color:#cfe3ff; display:grid; place-items:center; cursor:pointer;
+      box-shadow: var(--shadow);
+    }
+    [data-theme="light"] .fab .mini{ background:#ffffff; color:#1a2350; border-color:#e2e8ff; box-shadow: 0 8px 24px rgba(26,35,80,.12) }
+
+    /* Footer */
+    footer{ color:#9fb3d4; font-size:12px; margin:18px 0 38px 0; text-align:center; opacity:.8 }
+    [data-theme="light"] footer{ color:#5a6a96 }
+
+    /* Print styles */
+    @media print {
+      .applybar, .fab, nav.toc { display:none !important }
+      body{ background:white; color:black }
+      section, header.hero{ border:1px solid #ddd; background:white; box-shadow:none }
+      a{ color:black; text-decoration:underline }
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .progress{ transition:none !important }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <a href="#content" class="skip">Skip to content</a>
+  <div class="wrap">
+    <header class="hero" role="banner">
+      <div class="brand"><span class="dot"></span> PIE INSURANCE • ENGINEERING</div>
+      <h1 class="title">Senior Front End Engineer (Contract)</h1>
+      <p class="subtitle">
+        Join Pie’s product-led engineering team to build fast, accessible, and resilient frontends that power
+        how small businesses buy and manage commercial insurance. This role blends craft (design systems, a11y,
+        performance) with architecture (SSR, micro-frontends, CI/CD) and production ownership.
+      </p>
+      <div class="chips" role="list">
+        <span class="chip" role="listitem"><span class="blink" aria-hidden="true"></span> Contract via Deel • Remote</span>
+        <span class="chip" role="listitem"><span class="blink" aria-hidden="true"></span> TypeScript • React • SSR (Next.js)</span>
+        <span class="chip" role="listitem"><span class="blink" aria-hidden="true"></span> Testing: Jest • RTL • Cypress/Playwright</span>
+        <span class="chip" role="listitem"><span class="blink" aria-hidden="true"></span> AWS • CI/CD</span>
+      </div>
+      <div class="hud" aria-label="Quick actions">
+        <div aria-hidden="true"></div>
+        <div class="actions">
+          <!-- Replace with your email/Calendly -->
+          <a class="btn" id="applyTop" href="mailto:mateuszsiekierka@ntiative.com?subject=Application%20—%20Senior%20Front%20End%20Engineer%20(Contract)%20at%20Pie&body=Hi%2C%20I%27m%20interested%20in%20the%20Senior%20Front%20End%20Engineer%20role.%20Here%27s%20my%20CV%20and%20links%20to%20my%20portfolio.">
+            <span class="swash"></span> Apply by Email
+          </a>
+          <a class="btn secondary" href="#role"><span class="swash"></span> Explore the Role</a>
+          <button class="btn ghost" id="themeToggle" aria-pressed="false"><span class="swash"></span> Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="On-page navigation">
+      <a href="#mission">Mission</a>
+      <a href="#highlights">Highlights</a>
+      <a href="#role">What You’ll Do</a>
+      <a href="#rightstuff">What We’re Looking For</a>
+      <a href="#stack">Tech Stack</a>
+      <a href="#process">Interview Flow</a>
+      <a href="#apply">Apply</a>
+    </nav>
+
+    <main id="content">
+      <section id="mission">
+        <h2>Mission</h2>
+        <p>
+          Pie’s mission is to empower small businesses by making commercial insurance <em>as easy as pie</em>—
+          modern, affordable, and human. Front End Engineers craft the experience that customers, agents,
+          and partners rely on every day.
+        </p>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Why this role?</h3>
+            <ul>
+              <li>Own experiences end‑to‑end: from design reviews to production reliability.</li>
+              <li>Partner with design, product, and backend teams in a transparent, collaborative process.</li>
+              <li>Shape our engineering practices and FE architecture as a senior voice on the team.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Impact</h3>
+            <ul>
+              <li>Ship features that directly move company KPIs and customer outcomes.</li>
+              <li>Elevate front‑end delivery pipelines and developer experience.</li>
+              <li>Mentor other engineers; set a high bar for quality and a11y.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="highlights">
+        <h2>Role Highlights</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Architecture & Ownership</h3>
+            <ul>
+              <li>Define and evolve FE architecture (SSR/SSG, micro‑frontends, module federation).</li>
+              <li>Design for performance, security, and maintainability.</li>
+              <li>Participate in on‑call/incident response; improve stability and visibility.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Product Delivery</h3>
+            <ul>
+              <li>Lead scoping with PM/Design; assess feasibility and shape requirements.</li>
+              <li>Implement accessible, responsive UIs with React + TypeScript.</li>
+              <li>Drive testing strategy (unit, integration, e2e) in CI/CD pipelines.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Quality & Collaboration</h3>
+            <ul>
+              <li>Champion patterns, testing, and docs; mentor through PRs and pairing.</li>
+              <li>Help teams adopt micro‑FE best practices and performance budgets.</li>
+              <li>Partner closely with backend to deliver clean contracts and resilient UX.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Tip for candidates: include links to portfolio, production apps, and test suites you’re proud of.</p>
+      </section>
+
+      <section id="role">
+        <h2>What You’ll Do</h2>
+        <ul>
+          <li>Own features or systems and define their long‑term health while improving nearby systems.</li>
+          <li>Collaborate with product, design, stakeholders, and fellow engineers in a transparent process.</li>
+          <li>Refine engineering practices and architectural designs; promote best practices across the org.</li>
+          <li>Partner with PM/Design from planning to delivery; provide technical guidance and feasibility assessments.</li>
+          <li>Deliver software using continuous delivery; enhance FE pipelines and deployment strategies.</li>
+          <li>Assist support/operations with triage and production issue resolution.</li>
+          <li>Build highly modular, reusable code aligned with standards and a11y best practices.</li>
+          <li>Drive quality via unit, integration, and end‑to‑end testing strategies.</li>
+          <li>Mentor other engineers and participate deeply in code reviews.</li>
+          <li>Participate in on‑call rotations; continuously improve operational stability and visibility.</li>
+        </ul>
+      </section>
+
+      <section id="rightstuff">
+        <h2>What We’re Looking For</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Core Experience</h3>
+            <ul>
+              <li>5+ years building production front‑end applications with modern JavaScript/TypeScript.</li>
+              <li>Strong React (or similar) and server‑side rendering with modern meta‑frameworks (Next.js, Remix, etc.).</li>
+              <li>Experience designing and implementing micro‑frontend architectures at scale.</li>
+              <li>Deep testing familiarity: Jest, React Testing Library, Cypress or Playwright.</li>
+              <li>Public cloud experience (AWS preferred) and CI/CD for frontend.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Mindset & Practices</h3>
+            <ul>
+              <li>Agile mindset—ship small, iterate continuously, measure impact.</li>
+              <li>Strong focus on scalable, maintainable systems; secure coding; performance.</li>
+              <li>Product‑led thinking; ability to translate business goals to technical decisions.</li>
+              <li>Ownership of outcomes; proven ability to deliver cross‑functional projects.</li>
+            </ul>
+            <div class="tagrow">
+              <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span>
+              <span class="tag">Micro‑frontends</span><span class="tag">Jest/RTL</span><span class="tag">Cypress/Playwright</span>
+              <span class="tag">AWS</span><span class="tag">CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stack">
+        <h2>Tech Stack Snapshot</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Frontend</h3>
+            <ul>
+              <li>React + TypeScript</li>
+              <li>Next.js (SSR/SSG, routing, data‑fetching)</li>
+              <li>Design systems, a11y (WCAG), performance budgets</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Tooling & Quality</h3>
+            <ul>
+              <li>Jest, React Testing Library</li>
+              <li>Cypress/Playwright for e2e</li>
+              <li>ESLint/Prettier, Storybook (nice‑to‑have)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Platform</h3>
+            <ul>
+              <li>AWS (preferred) + CI/CD</li>
+              <li>Observability and performance monitoring</li>
+              <li>Micro‑frontends, module federation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="process">
+        <h2>Interview Flow</h2>
+        <ul>
+          <li><strong>System/Architecture</strong>: collaborate on a whiteboard; discuss SSR, state, caching, performance, and micro‑FE trade‑offs.</li>
+          <li><strong>Coding</strong>: TypeScript/React exercise; tests expected (Jest/RTL). Bring a local environment (Node 20+, TS 5).</li>
+          <li><strong>Cross‑Team & Principles</strong>: collaboration with PM/Design; shipping with quality, observability, and iteration.</li>
+        </ul>
+        <p class="note">Please disable AI coding assistants during the interview and be ready to run locally with Node ≥ 20 and TypeScript 5.x.</p>
+      </section>
+
+      <section id="apply">
+        <h2>Apply</h2>
+        <p>
+          Send your CV/LinkedIn/GitHub and a short note to
+          <a href="mailto:mateuszsiekierka@ntiative.com">mateuszsiekierka@ntiative.com</a>.
+          Feel free to include links to projects, live apps, or case studies showcasing SSR, testing, and performance work.
+        </p>
+        <div class="tagrow">
+          <span class="tag">Remote</span>
+          <span class="tag">Contract via Deel</span>
+          <span class="tag">EMEA-friendly time zones</span>
+        </div>
+      </section>
+    </main>
+
+    <div class="applybar" aria-hidden="false">
+      <div class="inner">
+        <a class="btn" href="mailto:mateuszsiekierka@ntiative.com?subject=Application%20—%20Senior%20Front%20End%20Engineer%20(Contract)%20at%20Pie"><span class="swash"></span> Apply Now</a>
+        <a class="btn secondary" href="#process"><span class="swash"></span> See Interview Flow</a>
+        <button class="btn ghost" id="copyJD"><span class="swash"></span> Copy JD</button>
+        <button class="btn ghost" id="shareJD" title="Share">Share</button>
+        <button class="btn ghost" id="printJD" title="Print / Save PDF">Print</button>
+      </div>
+    </div>
+
+    <footer>
+      © Pie Insurance • Front End Engineering
+    </footer>
+  </div>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": "Senior Front End Engineer (Contract)",
+    "description": "Build accessible, performant frontends with React/TypeScript, SSR (Next.js), micro-frontends, and testing at scale. Remote contract role with Pie Insurance.",
+    "employmentType": "CONTRACTOR",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Pie Insurance",
+      "sameAs": "https://www.pieinsurance.com"
+    },
+    "applicantLocationRequirements": {
+      "@type": "Country",
+      "name": "Remote (EMEA-friendly)"
+    },
+    "jobLocationType": "TELECOMMUTE"
+  }
+  </script>
+
+  <script>
+    // Theme toggle with persistence + meta theme-color update
+    const root = document.documentElement;
+    const metaTheme = document.getElementById('meta-theme-color');
+    function setTheme(theme){
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      metaTheme.setAttribute('content', theme === 'light' ? '#f7f9ff' : '#0b1024');
+    }
+    (function(){
+      const stored = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      setTheme(stored || (prefersLight ? 'light' : 'dark'));
+    })();
+    document.getElementById('themeToggle').addEventListener('click', ()=>{
+      const current = document.documentElement.getAttribute('data-theme');
+      setTheme(current === 'light' ? 'dark' : 'light');
+      const pressed = current !== 'light';
+      document.getElementById('themeToggle').setAttribute('aria-pressed', pressed.toString());
+    });
+
+    // Active section highlighting + scroll progress
+    const tocLinks = [...document.querySelectorAll('nav.toc a')];
+    const sections = tocLinks.map(a => document.querySelector(a.getAttribute('href')));
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const id = '#' + e.target.id;
+          const link = tocLinks.find(l => l.getAttribute('href') === id);
+          link && link.classList.add('active');
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
+    sections.forEach(s => s && io.observe(s));
+
+    const progress = document.getElementById('progress');
+    function onScroll(){
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+      progress.style.width = (scrolled * 100) + '%';
+    }
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    // Copy / Share / Print
+    document.getElementById('copyJD').addEventListener('click', async () => {
+      const text = document.body.innerText.replace(/\\n{3,}/g, "\\n\\n");
+      try{
+        await navigator.clipboard.writeText(text);
+        alert('Job description copied to clipboard ✅');
+      }catch(e){
+        alert('Copy failed — your browser blocked clipboard permissions.');
+      }
+    });
+    document.getElementById('printJD').addEventListener('click', () => window.print());
+    document.getElementById('shareJD').addEventListener('click', async () => {
+      const url = location.href;
+      const title = document.title;
+      const text = 'Senior Front End Engineer (Contract) — Pie Insurance';
+      if(navigator.share){
+        try{ await navigator.share({title, text, url}); }catch(e){ /* user cancelled */ }
+      }else{
+        try{
+          await navigator.clipboard.writeText(url);
+          alert('Link copied to clipboard ✅');
+        }catch(e){
+          prompt('Copy this link:', url);
+        }
+      }
+    });
+
+    // Keyboard shortcuts (A=apply, T=theme, P=print) for power users
+    document.addEventListener('keydown', (e)=>{
+      if(e.target && ['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
+      if(e.key.toLowerCase() === 'a') document.getElementById('applyTop').click();
+      if(e.key.toLowerCase() === 't') document.getElementById('themeToggle').click();
+      if(e.key.toLowerCase() === 'p') window.print();
+    });
+  </script>
+</body>
+</html>
